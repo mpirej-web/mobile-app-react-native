@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Echo project name
+        run: echo "Building mobile-app-react-native"
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
